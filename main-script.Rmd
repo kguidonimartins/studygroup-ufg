@@ -1,0 +1,60 @@
+---
+title: "Estudos integrados"
+author: "Karlo Guidoni Martins"
+date: "`r format(Sys.time(), '%d %B, %Y, %H:%M')`"
+knit: (function(inputFile, encoding) {
+      out_dir <- 'report';
+      rmarkdown::render(inputFile,
+                        encoding = encoding,
+                        output_file = file.path(dirname(inputFile),
+                        out_dir,
+                        'report.html')) })
+output:
+  html_document:
+    depth: 3
+    number_sections: yes
+    theme: united
+    toc: yes
+    toc_float: yes
+  # pdf_document:
+  #   toc: yes
+  # word_document:
+  #   toc: yes
+csl: sources/references/ABNT.csl
+bibliography: sources/references/library.bib
+# bibliography: sources/references/installed-r-packages.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r write quant output files, include = FALSE}
+# http://stackoverflow.com/questions/28894515/rmarkdown-directing-output-file-into-a-directory
+out_dir <- 'reports'
+if(!file.exists(out_dir)) {
+  dir.create(out_dir)
+}
+```
+
+
+```{r funcoes e pacotes, include=FALSE}
+source("R/functions/ipak.R")
+
+ipak(packages <- c("readxl",
+                   "vegan",
+                   "magrittr",
+                   "bibtex",
+                   "ggplot2",
+                   "ggrepel",
+                   "plotly"))
+
+# write.bib(packages, "sources/references/installed-r-packages.bib")
+
+# http://pt.stackoverflow.com/questions/139682/como-juntar-arquivos-bibtex-no-r
+# files.bib <- list.files(path = "sources/references/", pattern = "\\.bib")
+# bib.data <- lapply(files.bib, readLines)
+# write(unlist(bib.data), file = "new-library.bib")
+
+```
