@@ -42,6 +42,13 @@ if(!file.exists(out_dir)) {
 ```{r funcoes e pacotes, include=FALSE}
 source("R/functions/ipak.R")
 
+# install.packages("devtools")
+# devtools::install_github("Eflores89/nasadata")
+# library(nasadata)
+# 
+# install_url("https://github.com/Terradue/rLandsat8/releases/download/v0.1-SNAPSHOT/rLandsat8_0.1.0.tar.gz")
+# library(rLandsat8)
+
 ipak(packages <- c("readxl",
                    "vegan",
                    "magrittr",
@@ -58,3 +65,4 @@ ipak(packages <- c("readxl",
 # write(unlist(bib.data), file = "new-library.bib")
 
 ```
+
