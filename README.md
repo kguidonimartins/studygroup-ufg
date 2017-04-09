@@ -6,7 +6,7 @@ Grupo de estudos integrados LabComunidades e Lapig
 
 Tutorial Ploty: https://plot.ly/r/github-getting-started-for-data-scientists/
 
-### Download 
+### Download (escolha seu sistema operacional)
 
 Git : https://git-scm.com/downloads
 
