@@ -40,7 +40,7 @@ if(!file.exists(out_dir)) {
 
 
 ```{r funcoes e pacotes, include=FALSE}
-source("R/functions/ipak.R")
+# source("R/functions/ipak.R")
 
 # install.packages("devtools")
 # devtools::install_github("Eflores89/nasadata")
