@@ -4,11 +4,11 @@ Grupo de estudos integrados LabComunidades e Lapig
 
 ### Tutoriais Git e GitHub
 
-(Ploty)[https://plot.ly/r/github-getting-started-for-data-scientists/]
+[Ploty](https://plot.ly/r/github-getting-started-for-data-scientists/)
 
-(The Programming Historian)[http://programminghistorian.org/lessons/getting-started-with-github-desktop]
+[The Programming Historian](http://programminghistorian.org/lessons/getting-started-with-github-desktop)
 
-(Happy Git and GitHub for the useR)[http://happygitwithr.com/]
+[Happy Git and GitHub for the useR](http://happygitwithr.com/)
 
 ### Download (escolha seu sistema operacional)
 
