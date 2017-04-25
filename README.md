@@ -2,13 +2,17 @@
 
 Grupo de estudos integrados LabComunidades e Lapig
 
-### Tutorial Git e GitHub
+### Tutoriais Git e GitHub
 
-Tutorial Ploty: https://plot.ly/r/github-getting-started-for-data-scientists/
+(Ploty)[https://plot.ly/r/github-getting-started-for-data-scientists/]
+
+(The Programming Historian)[http://programminghistorian.org/lessons/getting-started-with-github-desktop]
+
+(Happy Git and GitHub for the useR)[http://happygitwithr.com/]
 
 ### Download (escolha seu sistema operacional)
 
-GIT : https://git-scm.com/downloads
+Git : https://git-scm.com/downloads
 
 Biblioteca LaTeX (para relatórios em '.pdf'): https://www.latex-project.org/get/
 
