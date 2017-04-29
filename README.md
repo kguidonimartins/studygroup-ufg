@@ -1,4 +1,4 @@
-# studygroup-ufg
+﻿# studygroup-ufg
 
 Grupo de estudos integrados LabComunidades e Lapig
 
@@ -17,3 +17,5 @@ Git : https://git-scm.com/downloads
 Biblioteca LaTeX (para relatórios em '.pdf'): https://www.latex-project.org/get/
 
 GitKraken: https://www.gitkraken.com/
+
+Teste_NLB
