@@ -15,7 +15,7 @@ Porque com o controle de versões você não salva cópias do seu trabalho, mas 
 	+ script-depois-que-fulano-mexeu.R  
 	+ script-mesclado.R  
 	+ script-que-nao-funciona-mais.R  
-	+ script-pqp.R
+	+ script-pqp.R  
 **Exemplos**  
 Repositório online do pacote `vegan`:   [https://github.com/vegandevs/vegan](https://github.com/vegandevs/vegan)  
 Repositório online da tese de doutorado da Elita Baldridge: [https://github.com/embaldridge/sad-comparison](https://github.com/embaldridge/sad-comparison)  
@@ -71,58 +71,45 @@ git config --list #Confirme suas configurações
 ```
 Pronto, agora o Git sabe quem você é.  
 Para iniciar um repositório a partir do seu computador, você pode dizer para o Git iniciar ou "vigiar" uma pasta.  
-Primeiro, confira qual o diretório de trabalho e mude, se necessário.
+Primeiro, confira qual o diretório de trabalho e mude, se necessário.  
 ```
 pwd # Retorna o diretório de trabalho
 cd	# Te leva para o seu diretório "root"
 cd .. # Te leva para o diretório um nível acima
 cd "seu/diretório" # Muda o seu diretório de trabalho
  ```
- Para clonar o seu repositório, copie a url como mostra a figura acima e peça para o Git clonar o repositório no diretório que você indicou.
+ Para clonar o seu repositório, copie a url como mostra a figura acima e peça para o Git clonar o repositório no diretório que você indicou.  
  ```
  git clone https://github.com/kguidonimartins/studygroup-ufg.git
  ```
-  Caso você ainda não tenha criado uma pasta para o seu projeto, você pode pedir para o Git criar pra você:
+  Caso você ainda não tenha criado uma pasta para o seu projeto, você pode pedir para o Git criar pra você:  
  ```
  mkdir "web-repo-github" # Para criar um novo diretório
  ```
  Caso você já tenha uma pasta e quer que o Git "vigie" ela, inicie um repositório:  
  ```
- git init # initialize a local Git repository in this directory
+ git init # Inicia um repositório local no diretório indicado
  ```
- git status # to verify new files or to track changes in files
-
+ Explore um pouco o seu novo repositório. Verifique se os arquivos estão todos lá com `ls`, liste os arquivos ocultos ou não com `ls -a`, confira os detalhes destes arquivos com `ls -al` e crie arquivos vazios com `touch`.  
+ Para copiar um arquivo do seu diretório de trabalho para um diretório qualquer, diga ao Git para copiar (cp) um arquivo (file - substitua pelo nome do arquivo a ser copiado) para um diretório (directory - substitua pelo diretório de destino). Para copiar de diretórios diferentes, use `-r`:  
+ ```
+ cp file directory
+ cp -r
+```
+Para mover ou renomear arquivos, use `mv`:  
+```
+ mv file directory
+ mv file rename_file
+```
+ Você pode (talvez você precise) dizer pro Git onde está o seu repositório remoto:  
+ ```
  git remote add origin https://github.com/fulano/meu-repo-legal.git
  ```
-
-clear 	# clean the console or Crtl + L (universal command)
-
-ls		# list files and folders in the current directory
-
-ls -a 	# list hidden and unhidden files and folders
-
-ls -al 	# list details for hidden and unhidden flies and folders
-
-cd 		# stands for directory # with no argument takes to your home directory
-
-cd .. 	# change directory to one level above
-
-mkdir	# stands for "make directory" # just like right click > new folders
-		# Caution: use quotes (" ") to create a directory
-
-touch 	# create an empty file
-
-cp 		# stands for "copy" (e.g. cp file directory) # the first argument is the file and the second the path to where
-
-cp -r 	# copy documents from a directory to other (e.g. cp -r directory1 directory2)
-
-mv 		# stand for "move" a file to other directory (e.g. mv file directory)
-
-mv 		# to rename file (e.g. mv file rename_file)
-
-echo 	# print whatever you want
-
-date 	# print today's date
+ Feito isso, você pode verificar que arquivos não estão sincronizados com o seu repositório online (sejam novos ou com alterações salvas):  
+ ```
+ git status
+ ```
+Seu terminal ficou uma bagunça? Tente um `clear` ou Ctrl+L.  
 
 #------------------------------------------------------------------------------------------------------------------------
 
