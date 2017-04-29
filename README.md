@@ -17,3 +17,7 @@ Git : https://git-scm.com/downloads
 Biblioteca LaTeX (para relatÃ³rios em '.pdf'): https://www.latex-project.org/get/
 
 GitKraken: https://www.gitkraken.com/
+
+
+
+# Me dá café!!!!
