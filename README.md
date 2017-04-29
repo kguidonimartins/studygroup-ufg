@@ -18,6 +18,7 @@ Biblioteca LaTeX (para relatórios em '.pdf'): https://www.latex-project.org/get
 
 GitKraken: https://www.gitkraken.com/
 
+<<<<<<<
 
 
 
@@ -28,3 +29,9 @@ GitKraken: https://www.gitkraken.com/
 
 
 teste
+=======
+
+
+# Me d� caf�!!!!
+
+>>>>>>>
