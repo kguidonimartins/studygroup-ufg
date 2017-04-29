@@ -20,17 +20,4 @@ GitKraken: https://www.gitkraken.com/
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-teste-k
+# Me d� caf�!!!!
