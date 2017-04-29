@@ -19,3 +19,6 @@ Biblioteca LaTeX (para relatórios em '.pdf'): https://www.latex-project.org/get
 GitKraken: https://www.gitkraken.com/
 
 Teste_NLB
+
+
+# Me d� caf�!!!!
