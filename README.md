@@ -17,9 +17,3 @@ Git : https://git-scm.com/downloads
 Biblioteca LaTeX (para relatórios em '.pdf'): https://www.latex-project.org/get/
 
 GitKraken: https://www.gitkraken.com/
-
-
-
-# Me d� caf�!!!!
-
-#novo-test-k
