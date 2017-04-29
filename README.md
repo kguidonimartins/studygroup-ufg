@@ -18,13 +18,17 @@ Biblioteca LaTeX (para relatórios em '.pdf'): https://www.latex-project.org/get
 
 GitKraken: https://www.gitkraken.com/
 
-teste
-=======
 
 
 # Me d� caf�!!!!
-
 =======
 Teste_NLB
 
-# Me d� caf�!!!!
+
+
+## Não quero mais café, quero rosquinha.
+
+Teste pro novo ramo
+
+#novo-test-k
+
