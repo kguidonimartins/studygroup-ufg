@@ -1,4 +1,4 @@
-# studygroup-ufg
+﻿# studygroup-ufg
 
 Grupo de estudos integrados LabComunidades e Lapig
 
@@ -18,20 +18,13 @@ Biblioteca LaTeX (para relatórios em '.pdf'): https://www.latex-project.org/get
 
 GitKraken: https://www.gitkraken.com/
 
-<<<<<<<
-
-
-
-
-
-
-
-
-
 teste
 =======
 
 
 # Me d� caf�!!!!
 
->>>>>>>
+=======
+Teste_NLB
+
+# Me d� caf�!!!!
