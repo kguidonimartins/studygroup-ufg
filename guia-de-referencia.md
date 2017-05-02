@@ -130,7 +130,7 @@ git add -A # Faz as duas coisas anteriores ao mesmo tempo.
 ```
 Agora que o Git está de olho em todos os seus arquivos, qualquer alteração que você fizer (e quiser que ela seja registrada na linha do tempo deste arquivo) será detectada. Para que suas mudanças sejam registradas, "commite" o arquivo alterado com um comentário, para que você possa lembrar qual o diferencial daquela versão. 
 ```
-git commit -m "menssagem"
+git commit -m "mensagem"
 ```
 O `commit`só atualiza o repositório local, se você estiver trabalhando localmente, ou o repositório remoto, se você estiver trabalhando remotamente. Para sincronizar os dois repositórios, você deve "empurrar" as atualizações para o repositório remoto ou "puxar" para o repositório local.
 ```
