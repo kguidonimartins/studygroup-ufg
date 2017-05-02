@@ -16,6 +16,7 @@ Porque com o controle de versões você não salva cópias do seu trabalho, mas 
 	+ script-mesclado.R  
 	+ script-que-nao-funciona-mais.R  
 	+ script-pqp.R  
+	  
 **Exemplos**  
 Repositório online do pacote `vegan`:   [https://github.com/vegandevs/vegan](https://github.com/vegandevs/vegan)  
 Repositório online da tese de doutorado da Elita Baldridge: [https://github.com/embaldridge/sad-comparison](https://github.com/embaldridge/sad-comparison)  
@@ -111,34 +112,39 @@ Para mover ou renomear arquivos, use `mv`:
  ```
 Seu terminal ficou uma bagunça? Tente um `clear` ou Ctrl+L.  
 
-#------------------------------------------------------------------------------------------------------------------------
-
-# Configure Git
-# Setting
-```shell
-git config --global user.name "fulano"
-git config --global user.email "fulano@gagamail.com"
+-----
+Pausa para um café!  
+-----
+Muito bem, agora seu repositório está pronto para usar.  
+Verifique se existem novos arquivos na sua pasta ou arquivos modificados que ainda não foram "pushados":  
 ```
+git status
+```
+Ué, não encontrou algum arquivo importante? Adicione-o agora no campo de visão do Git!
+```
+git add arquivo
+  
+git add -u # Atualiza o restreamento de algum arquivo que foi renomeado ou excluído.
+  
+git add -A # Faz as duas coisas anteriores ao mesmo tempo.
+```
+Agora que o Git está de olho em todos os seus arquivos, qualquer alteração que você fizer (e quiser que ela seja registrada na linha do tempo deste arquivo) será detectada. Para que suas mudanças sejam registradas, "commite" o arquivo alterado com um comentário, para que você possa lembrar qual o diferencial daquela versão. 
+```
+git commit -m "menssagem"
+```
+O `commit`só atualiza o repositório local, se você estiver trabalhando localmente, ou o repositório remoto, se você estiver trabalhando remotamente. Para sincronizar os dois repositórios, você deve "empurrar" as atualizações para o repositório remoto ou "puxar" para o repositório local.
+```
+git push origin master #"Git, por favor, leve os arquivos atualizados para o repositório remoto 'origin', no ramo 'master'."
 
-git config --list # confirme
-
-mkdir web-repo-github # to make a new directory
-
-git init # initialize a local Git repository in this directory
-
-git status # to verify new files or to track changes in files
+git pull
+```
 
 git remote add origin https://github.com/fulano/meu-repo-legal.git
 
-# One should do this before committing.
-git add . # adds all new files
 
-git add -u # updates tracking for files that changed names or were deleted
-
-git add -A # does both of the previous
 
 # Changes you want to commit to be saved as an intermediate version
-git commit -m "message" # what you did? # This only updates local repo, not remote on GitHub
+
 
 git diff # para verificar mudanças no conteúdo dos arquivos (e.g. linhas novas adicionadas)
 
