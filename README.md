@@ -1,4 +1,4 @@
-﻿# studygroup-ufg
+# studygroup-ufg
 
 Grupo de estudos integrados LabComunidades e Lapig
 
@@ -22,4 +22,4 @@ Biblioteca LaTeX (para relatórios em '.pdf'): https://www.latex-project.org/get
 
 GitKraken: https://www.gitkraken.com/
 
- 
+### Controle de versão em trabalhos colaborativos: [uma necessidade](https://medium.com/@claytonssilva/git-da-necessidade-a-automa%C3%A7%C3%A3o-de-sua-release-parte-1-a9d697e8f9ee)
