@@ -243,3 +243,28 @@ git add yourFilesToRevert # Add the file to revert
 git commit -m "commit message"
 git reset --hard # Undo changes from the revert we didn't commit
 ```
+
+# 2017-05-03 inclusão de novos comandos; confira: https://rogerdudler.github.io/git-guide/index.pt_BR.html 
+
+- Sobrescrever alterações locais: No caso de você ter feito algo errado, você pode sobrescrever as alterações locais usando o commando:
+
+```shell
+git checkout -- <arquivo>
+```
+
+Isto substitui as alterações na sua árvore de trabalho com o conteúdo mais recente no HEAD. Alterações já adicionadas ao index, bem como novos arquivos serão mantidos.
+
+- Se ao invés disso você deseja remover todas as alterações e commits locais, recupere o histórico mais recente do servidor e aponte para seu branch master local desta forma:
+
+```shell
+git fetch origin
+git reset --hard origin/master
+```
+
+- Para fazer inclusões interativamente via terminal, use:
+
+```shell
+git add -i
+```
+
+Siga as instruções fornecidas pelo terminal e inclua quantos arquivos quiser antes do commit.
