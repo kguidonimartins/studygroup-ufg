@@ -244,7 +244,7 @@ git commit -m "commit message"
 git reset --hard # Undo changes from the revert we didn't commit
 ```
 
-# 2017-05-03 inclusão de novos comandos; confira: https://rogerdudler.github.io/git-guide/index.pt_BR.html 
+### 2017-05-03 inclusão de novos comandos; confira: https://rogerdudler.github.io/git-guide/index.pt_BR.html
 
 - Sobrescrever alterações locais: No caso de você ter feito algo errado, você pode sobrescrever as alterações locais usando o commando:
 
@@ -268,3 +268,9 @@ git add -i
 ```
 
 Siga as instruções fornecidas pelo terminal e inclua quantos arquivos quiser antes do commit.
+
+### 2017-05-04
+
+```shell
+git show-branch -a
+```
