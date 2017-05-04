@@ -16,7 +16,7 @@ Porque com o controle de versões você não salva cópias do seu trabalho, mas 
 	+ script-mesclado.R  
 	+ script-que-nao-funciona-mais.R  
 	+ script-pqp.R  
-	  
+
 **Exemplos**  
 Repositório online do pacote `vegan`:   [https://github.com/vegandevs/vegan](https://github.com/vegandevs/vegan)  
 Repositório online da tese de doutorado da Elita Baldridge: [https://github.com/embaldridge/sad-comparison](https://github.com/embaldridge/sad-comparison)  
@@ -123,44 +123,40 @@ git status
 Ué, não encontrou algum arquivo importante? Adicione-o agora no campo de visão do Git!
 ```
 git add arquivo
-  
+
 git add -u # Atualiza o restreamento de algum arquivo que foi renomeado ou excluído.
-  
+
 git add -A # Faz as duas coisas anteriores ao mesmo tempo.
 ```
-Agora que o Git está de olho em todos os seus arquivos, qualquer alteração que você fizer (e quiser que ela seja registrada na linha do tempo deste arquivo) será detectada. Para que suas mudanças sejam registradas, "commite" o arquivo alterado com um comentário, para que você possa lembrar qual o diferencial daquela versão. 
+Agora que o Git está de olho em todos os seus arquivos, qualquer alteração que você fizer (e quiser que ela seja registrada na linha do tempo deste arquivo) será detectada. Para que suas mudanças sejam registradas, "commite" o arquivo alterado com um comentário, para que você possa lembrar qual o diferencial daquela versão.
 ```
 git commit -m "mensagem"
 ```
 O `commit`só atualiza o repositório local, se você estiver trabalhando localmente, ou o repositório remoto, se você estiver trabalhando remotamente. Para sincronizar os dois repositórios, você deve "empurrar" as atualizações para o repositório remoto ou "puxar" para o repositório local.
 ```
-git push origin master #"Git, por favor, leve os arquivos atualizados para o repositório remoto 'origin', no ramo 'master'."
+git push origin master
+#"Git, por favor, leve os arquivos atualizados para o repositório remoto 'origin', no ramo 'master'."
 
 git pull
+#"Git, por favor, traga os arquivos atualizados do repositório remoto para o meu repositório local"
 ```
-
-git remote add origin https://github.com/fulano/meu-repo-legal.git
-
-
-
-# Changes you want to commit to be saved as an intermediate version
-
-
-git diff # para verificar mudanças no conteúdo dos arquivos (e.g. linhas novas adicionadas)
-
-git diff --staged # verifica os arquivos e suas mudanças que estão na 'stage area'
-
-git log # verifica o histórico de commits do projeto desde o início
-
+### Como acompanhar as mudanças nos meus arquivos?
+Verifique as mudanças no conteúdo dos arquivos (e.g. linhas novas adicionadas):
+```
+git diff
+```
+Verifique os arquivos e suas mudanças que estão na 'stage area':
+```
+git diff --staged
+```
+Se você estiver perdido entre as diferentes versões dos seus arquivos, confira o histórico dos commits! :)
+```
+git log # histórico de commits do projeto desde o início
 git log -p # histórico detalhado dos commits (i.e. git log + git diff)
-# No entanto, dependendo do tamanho das alterações, o log pode ser muito grande
-#e será necessário dar 'enter' em cada paginação para ver todas as alterações.
-# No final aparecerá '(END)'; pressione a letra 'q' para finalizar a leitura.
+```
+Dependendo do tamanho das alterações, o log pode ser muito grande e será necessário dar 'enter' em cada paginação para ver todas as alterações. No final aparecerá '(END)'; então, pressione a letra 'q' para finalizar a leitura.  
+Se você quiser só conferir os últimos commits, limite a lista com `git log -p -1` (substitua o 1 pelo número de commits que você deseja ver). Você também pode conferir todo o histórico de mudanças dos diretórios de trabalho com o visualizador do Git com `gitk`. Não é legal?!  
 
-git log -p -1 # limita a lista de commits detalhados
-git log -p -2 # limita a lista de commits detalhados aos dois últimos commits
-
-gitk # abre o visualizador do histórico de mudanças dos working directory
 
 #-----------------------------------------------------------------------------------
 Para reverter mudanças feitas pelo commits
