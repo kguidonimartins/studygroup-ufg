@@ -7,19 +7,27 @@ Grupo de estudos integrados [LabComunidades](http://cianciaruso.wix.com/home#!) 
 [Trabalhando remotamente](#trabalhando-remotamente)  
 [Trabalhando localmente](#trabalhando-localmente)  
 
-### O que é controle de versão? Por que é legal usar?  
+### O que é controle de versão? Por que é legal usar?
+
 Neste grupo trabalharemos em colaboração para resolver desafios relacionados ao processamento de dados espaciais. O controle de versões implementado em Git permite que as alterações feitas em um arquivo sejam registradas em uma linha do tempo, sendo possível recuperar versões anteriores a qualquer momento.  
 
-Porque com o controle de versões você não salva cópias do seu trabalho, mas a sua história, você evita coisas assim no seu diretório de trabalho:  
-	+ script-v0.1.R  
-	+ script-depois-que-fulano-mexeu.R  
-	+ script-mesclado.R  
-	+ script-que-nao-funciona-mais.R  
-	+ script-pqp.R  
+Porque com o controle de versões você não salva cópias do seu trabalho, mas a sua história, evitando coisas assim no seu diretório de trabalho:  
 
-**Exemplos**  
-Repositório online do pacote `vegan`:   [https://github.com/vegandevs/vegan](https://github.com/vegandevs/vegan)  
-Repositório online da tese de doutorado da Elita Baldridge: [https://github.com/embaldridge/sad-comparison](https://github.com/embaldridge/sad-comparison)  
+```shell
+- projeto/
+	|- scripts/
+		|- script-v0.1.R
+		|- script-depois-que-fulano-mexeu.R  
+		|- script-mesclado.R  
+		|- script-que-nao-funciona-mais.R  
+		|- script-pqp.R  
+```
+
+**Exemplos de repositórios no GitHub**  
+
+Repositório online do pacote `vegan`: https://github.com/vegandevs/vegan
+
+Repositório online da dissertação da Elita Baldridge: https://github.com/embaldridge/sad-comparison
 
 ### Um pouco de vocabulário e arquitetura Git  
 
@@ -27,13 +35,31 @@ A arquitetura básica com a qual temos que lidar é composta por um master, bran
 
 ![arquitetura git](https://guides.github.com/activities/hello-world/branching.png)  
 
+#### A linha mestre do repositório: master
+
 O **master** é a principal linha do tempo do seu **repositório** (um projeto com os arquivos necessários para desenvolvê-lo). Nele, idealmente, os arquivos só são alterados quando estritamente necessário, ou seja, quando uma alteração é fundamental para o avanço do projeto.  
 
-Um **branch** <img src="https://raw.githubusercontent.com/mozillascience/friendly-github/master/assets/images/Branch.gif" style="width: 20px;"/> é uma ramificação do master. É um repositório dentro do repositório principal criado para testar alterações que podem ou não ser implementadas no master. Idealmente, cada colaborador cria um branch para testar as alterações que julga necessárias e submete estas alterações ao julgamento dos demais colegas antes de implementá-las no master.  
+#### Ramificações a partir do master: branch
+
+Um **branch** <img src="https://raw.githubusercontent.com/mozillascience/friendly-github/master/assets/images/Branch.gif" style="width: 20px;"/> é uma ramificação do master. É um repositório dentro do repositório principal criado para testar alterações que podem ou não ser implementadas no **master**. Idealmente, cada colaborador cria um branch para testar as alterações que julga necessárias e submete estas alterações ao julgamento dos demais colegas antes de implementá-las no master.  
+
+#### Copiando repositórios da 'nuvem' para o computador (ou, trabalhando offline):
 
 Os repositórios podem ser criados online e muitas coisas podem ser feitas lá. Porém, para trabalhar localmente em um repositório, ou seja, para trabalhar offline, precisamos criar um **clone** do repositório que temos online. Um clone é uma cópia sincronizada do seu repositório online. Tudo o que você fizer no seu diretório de trabalho local (correspondente ao clone) será sincronizado com o repositório online.  
 
+#### Copiando repositórios online
+
 Já os **forks** <img src="https://raw.githubusercontent.com/mozillascience/friendly-github/master/assets/images/Fork.gif" style="width: 20px;"/> são cópias completas e independentes de um repositório. Usamos o fork (e não o clone) quando pretendemos mudar a direção do projeto, ou quando queremos contribuir com o projeto de alguém de forma independente e só depois sugerir as mudanças no projeto original. Caso você precise atualizar o seu fork com a versão mais nova do projeto, você pode fazer isso solicitando um **fetch** para o Git.  
+
+### Comandos básicos
+
+Os comandos a seguir nos darão uma noção do *workflow* no Git
+
+#### Conferindo o 'status' da sua pasta local
+
+```
+git status
+```
 
 Quando alteramos algum arquivo e salvamos a nova versão, fazemos um **commit**<img src="https://raw.githubusercontent.com/mozillascience/friendly-github/master/assets/images/Commit.gif" style="width: 20px;"/>. Os commits devem ser acompanhados de comentários curtos, mas suficientemente descritivos, para que você possa entender qual a diferença daquela versão e localizá-la mais facilmente. Com os commits é possível rastrear qual a mudança que foi feita, onde, por quem e quando.  
 
