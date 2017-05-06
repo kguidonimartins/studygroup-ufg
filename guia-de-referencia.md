@@ -302,3 +302,19 @@ Siga as instruções fornecidas pelo terminal e inclua quantos arquivos quiser a
 ```shell
 git show-branch -a
 ```
+### 06-V-2017
+Para trazer as atualizações do master pro seu branch:
+Confira se está no master. Se não estiver, checkout pra o master:
+```
+git checkout master
+```
+Estando no master, atualize seu diretório local:
+```
+git pull
+```
+Após atualizar seu diretório local, passe para o seu branch, mescle as atualizações do master no seu branch e envie para o repositório remoto:
+```
+git checkout seu-branch
+git merge master seu-branch
+git push
+```
