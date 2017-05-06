@@ -59,7 +59,9 @@ ipak(packages <- c("readxl",
                    "bibtex",
                    "ggplot2",
                    "ggrepel",
-                   "plotly"))
+                   "plotly",
+                   "raster",
+                   "maps"))
 
 # write.bib(packages, "sources/references/installed-r-packages.bib")
 
@@ -67,6 +69,80 @@ ipak(packages <- c("readxl",
 # files.bib <- list.files(path = "sources/references/", pattern = "\\.bib")
 # bib.data <- lapply(files.bib, readLines)
 # write(unlist(bib.data), file = "new-library.bib")
+
+```
+
+
+
+```{r importar.shape}
+#importar shapes
+shp_bhrv <- shapefile("H:\\DATASAN\\DADOS\\bhrv\\fundiaria\\pa_br_base_fundiaria_BHRV_2016_incra.shp")
+shp_lim <- shapefile("H:\\DATASAN\\DADOS\\bhrv\\Lim_bh_rio_vermelho\\BH_Rio_Vermelho.shp")
+shp_est <- shapefile("S:\\QUALIDADE_PASTAGEM\\NDVI_TSA\\1_BRASIL\\SHAPEFILE\\LIMITE_ESTADOS\\pa_br_estados_250_2013_ibge.shp")
+```
+
+
+```{r import.raster}
+#importar raster
+ndvi_br = raster("S:\\QUALIDADE_PASTAGEM\\NDVI_TSA\\1_BRASIL\\NDVI\\pa_br_ndvi_250_2001001_lapig.tif")
+```
+
+
+
+```{r plot.shape}
+#plot.shapes
+plot(shp_est)
+plot(shp_est[ shp_est$NM_UF %in% c("GO","MT",'SP') , ], add = TRUE, col = c("green", 'blue', 'red'))
+```
+
+
+
+```{r crop.goias}
+#recortar goias
+crs(shp_goi) = crs(ndvi_goi)
+
+shp_goi = shp_est[ shp_est$NM_UF == "GO", ]
+
+ndvi_goi_c = crop(ndvi_br, shp_goi)
+plot(ndvi_goi)
+plot(shp_goi, add = TRUE)
+
+ndvi_goi_m = mask(ndvi_goi, shp_goi)
+plot(ndvi_goi_m)
+plot(shp_goi, add = TRUE)
+```
+
+
+```{r selec.fazenda}
+setwd("H:\\DATASAN\\NDVI_TSA\\2_BHRV\\NDVI")
+
+ls.f = Sys.glob("*tif")
+
+temp.list = list()
+for (i in 1:length(ls.f)) {
+  cat("loop", ls.f[i], "\n")
+  
+  temp.list[[i]] = raster(ls.f[i])
+}
+
+ndvi_bhrv = stack(temp.list)
+ndvi_bhrv[ 50 , 100, 1]
+ndvi_bhrv[[1:10]][90,200]
+pix = as.numeric(ndvi_bhrv[[1:100]][90,200])
+pix.ts = ts(pix, start = 2001, frequency = 23)
+plot(pix.ts)
+
+###
+###
+#Recorte para uma fazenda
+shp_nsa = shp_bhrv [shp_bhrv$FID_certif == "5363", ]
+plot(shp_nsa)
+
+ndvi_nsa_c = crop(ndvi_br, shp_nsa)
+plot(ndvi_goi)
+plot(shp_goi, add = TRUE)
+
+
 
 ```
 
