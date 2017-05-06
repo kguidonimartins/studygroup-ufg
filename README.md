@@ -2,6 +2,58 @@
 
 Grupo de estudos integrados LabComunidades e Lapig
 
+### Estrutura do repisitório
+
+```shell
+|-- studygroup-ufg/        
+		|-- cleaned-data/  # dados processados
+		|   |-- raster/     
+		|   |-- shapefile/
+		|-- outputs/       # resultados intermediários de análises
+		|-- R/             # scripts com funções ou alguma rotina
+		|   |-- functions/
+		|   |-- scripts/
+		|-- raw-data/      # dados brutos; não processados
+		|-- report/        # relatórios dinâmicos
+```
+
+### Comandos básicos para o nosso *workflow*
+
+Um aviso antes de tudo: **sempre trabalhe no seu branch, nunca no master!**
+Os comandos abaixo vão manter o seu *branch* sempre atualizado com os arquivos do *master*.
+
+1. Antes de iniciar o trabalho, confira em qual *branch* você está:
+```
+git branch
+```
+
+2. Vá para o *master* e 'puxe' as atualizações do repositório:
+```
+git checkout master && git pull
+```
+
+3. Volte ao seu *branch* de trabalho (e.g. *meu_branch*) e "mescle-o" com o *master*:
+```
+git merge master meu_branch
+```
+
+4. Envie as modificações para o repositório online (*remote*)
+```
+git push
+```
+
+5. Adicione e "commite" os arquivos após as modificações necessárias:
+```
+git add . && git commit -a -m "mensagem curta e informativa"
+```
+
+6. O passo mais importante para que o trabalho flua: **"empurre" os arquivos para o seu branch, e não para o master!**
+```
+git push origin meu_branch
+```
+
+7. Submeta um *pull request* pelo GitHub.
+
 ### Tutoriais Git e GitHub
 
 [Nosso guia de referência (em construção)](https://github.com/kguidonimartins/studygroup-ufg/blob/master/guia-de-referencia.md)
