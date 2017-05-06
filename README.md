@@ -37,7 +37,7 @@ git checkout master && git pull
 git merge master meu_branch
 ```
 
-4. Envie as modificações para o repositório online (*remote*)
+4. "Empurre" as modificações para o repositório online; isto apenas informará a "mescla" feita pelo comando anterior.
 ```
 git push
 ```
