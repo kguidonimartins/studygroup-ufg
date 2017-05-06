@@ -1,6 +1,6 @@
 ---
 title: "Estudos integrados"
-author: "Karlo Guidoni Martins"
+author: "StudyGroup_UFG"
 date: "`r format(Sys.time(), '%d %B, %Y, %H:%M')`"
 knit: (function(inputFile, encoding) {
       out_dir <- 'report';
@@ -20,8 +20,8 @@ output:
   #   toc: yes
   # word_document:
   #   toc: yes
-csl: sources/references/ABNT.csl
-bibliography: sources/references/library.bib
+# csl: sources/references/ABNT.csl
+# bibliography: sources/references/library.bib
 # bibliography: sources/references/installed-r-packages.bib
 ---
 
@@ -36,7 +36,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r write quant output files, include = FALSE}
 # http://stackoverflow.com/questions/28894515/rmarkdown-directing-output-file-into-a-directory
-out_dir <- 'reports'
+out_dir <- 'report'
 if(!file.exists(out_dir)) {
   dir.create(out_dir)
 }
@@ -44,7 +44,7 @@ if(!file.exists(out_dir)) {
 
 
 ```{r funcoes e pacotes, include=FALSE}
-# source("R/functions/ipak.R")
+ source("R/functions/ipak.R")
 
 # install.packages("devtools")
 # devtools::install_github("Eflores89/nasadata")
