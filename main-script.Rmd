@@ -79,6 +79,10 @@ ipak(packages <- c("readxl",
 shp_bhrv <- shapefile("H:\\DATASAN\\DADOS\\bhrv\\fundiaria\\pa_br_base_fundiaria_BHRV_2016_incra.shp")
 shp_lim <- shapefile("H:\\DATASAN\\DADOS\\bhrv\\Lim_bh_rio_vermelho\\BH_Rio_Vermelho.shp")
 shp_est <- shapefile("S:\\QUALIDADE_PASTAGEM\\NDVI_TSA\\1_BRASIL\\SHAPEFILE\\LIMITE_ESTADOS\\pa_br_estados_250_2013_ibge.shp")
+shp_jtb <- shapefile("H:\\github\\studygroup-ufg\\cleaned-data\\shapefile\\Faz._Jatobá.shp")
+
+#shapefile("~cleaned-data/shapefile/Faz._Jatobá.shp")
+
 ```
 
 
@@ -138,11 +142,10 @@ plot(pix.ts)
 shp_nsa = shp_bhrv [shp_bhrv$FID_certif == "5363", ]
 plot(shp_nsa)
 
-ndvi_nsa_c = crop(ndvi_br, shp_nsa)
-plot(ndvi_goi)
-plot(shp_goi, add = TRUE)
+ndvi_jtb_c = crop(ndvi_bhrv, shp_jtb)
+plot(ndvi_jtb_c[[1:4]])
 
-
+writeRaster(ndvi_jtb_c, filename = "H:\\github\\studygroup-ufg\\cleaned-data\\raster\\NDVI_Faz_Jatoba_2001_2016.tif")
 
 ```
 
