@@ -34,7 +34,7 @@ git checkout master && git pull
 
 3. Volte ao seu *branch* de trabalho (e.g. *meu_branch*) e "mescle-o" com o *master*:
 ```
-git merge master meu_branch
+git checkout meu_branch && git merge master meu_branch
 ```
 
 4. "Empurre" as modificações para o repositório online; isto apenas informará a "mescla" feita pelo comando anterior.
