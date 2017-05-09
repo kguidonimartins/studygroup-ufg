@@ -109,13 +109,13 @@ cd "seu/diretório" # Muda o seu diretório de trabalho
  ```
  git clone https://github.com/kguidonimartins/studygroup-ufg.git
  ```
-  Caso você ainda não tenha criado uma pasta para o seu projeto, você pode pedir para o Git criar pra você:  
+ O comando acima criará uma pasta com o mesmo nome do repositório no seu diretório de trabalho. Para que a pasta criada tenha outro nome, inclua este após o endereço do repositório. Este processo funciona se você tiver um repositório online e queira que ele exista no seu computador. Você também pode fazer o caminho inverso. Caso você ainda não tenha criado uma pasta para o seu projeto, você pode pedir para o Git criar pra você:  
  ```
- mkdir "web-repo-github" # Para criar um novo diretório
+ mkdir "web-repo-github"
  ```
- Caso você já tenha uma pasta e quer que o Git "vigie" ela, inicie um repositório:  
+ Mas se você já tiver uma pasta e quer que o Git "vigie" ela, inicie um repositório local no diretório indicado:  
  ```
- git init # Inicia um repositório local no diretório indicado
+ git init
  ```
  Explore um pouco o seu novo repositório. Verifique se os arquivos estão todos lá com `ls`, liste os arquivos ocultos ou não com `ls -a`, confira os detalhes destes arquivos com `ls -al` e crie arquivos vazios com `touch`.  
  Para copiar um arquivo do seu diretório de trabalho para um diretório qualquer, diga ao Git para copiar (cp) um arquivo (file - substitua pelo nome do arquivo a ser copiado) para um diretório (directory - substitua pelo diretório de destino). Para copiar de diretórios diferentes, use `-r`:  
@@ -132,10 +132,6 @@ Para mover ou renomear arquivos, use `mv`:
  ```
  git remote add origin https://github.com/fulano/meu-repo-legal.git
  ```
- Feito isso, você pode verificar que arquivos não estão sincronizados com o seu repositório online (sejam novos ou com alterações salvas):  
- ```
- git status
- ```
 Seu terminal ficou uma bagunça? Tente um `clear` ou Ctrl+L.  
 
 -----
@@ -147,19 +143,25 @@ Verifique se existem novos arquivos na sua pasta ou arquivos modificados que ain
 git status
 ```
 Ué, não encontrou algum arquivo importante? Adicione-o agora no campo de visão do Git!
-```
+```shell
 git add arquivo
 
 git add -u # Atualiza o restreamento de algum arquivo que foi renomeado ou excluído.
 
 git add -A # Faz as duas coisas anteriores ao mesmo tempo.
 ```
+Para fazer inclusões interativamente via terminal, use:
+```shell
+git add -i
+```
+Siga as instruções fornecidas pelo terminal e inclua quantos arquivos quiser antes do commit.  
+
 Agora que o Git está de olho em todos os seus arquivos, qualquer alteração que você fizer (e quiser que ela seja registrada na linha do tempo deste arquivo) será detectada. Para que suas mudanças sejam registradas, "commite" o arquivo alterado com um comentário, para que você possa lembrar qual o diferencial daquela versão.
 ```
 git commit -m "mensagem"
 ```
 O `commit`só atualiza o repositório local, se você estiver trabalhando localmente, ou o repositório remoto, se você estiver trabalhando remotamente. Para sincronizar os dois repositórios, você deve "empurrar" as atualizações para o repositório remoto ou "puxar" para o repositório local.
-```
+```shell
 git push origin master
 #"Git, por favor, leve os arquivos atualizados para o repositório remoto 'origin', no ramo 'master'."
 
@@ -176,129 +178,104 @@ Verifique os arquivos e suas mudanças que estão na 'stage area':
 git diff --staged
 ```
 Se você estiver perdido entre as diferentes versões dos seus arquivos, confira o histórico dos commits! :)
-```
+```shell
 git log # histórico de commits do projeto desde o início
 git log -p # histórico detalhado dos commits (i.e. git log + git diff)
 ```
 Dependendo do tamanho das alterações, o log pode ser muito grande e será necessário dar 'enter' em cada paginação para ver todas as alterações. No final aparecerá '(END)'; então, pressione a letra 'q' para finalizar a leitura.  
 Se você quiser só conferir os últimos commits, limite a lista com `git log -p -1` (substitua o 1 pelo número de commits que você deseja ver). Você também pode conferir todo o histórico de mudanças dos diretórios de trabalho com o visualizador do Git com `gitk`. Não é legal?!  
 
-
-#-----------------------------------------------------------------------------------
-Para reverter mudanças feitas pelo commits
-#--------------------------------------------------------------------------------------
-
-git log --pretty=oneline # apresenta as chaves e as mensagens de cada commit
-
-git commit --amend -m "mensagem" # para unir a nova edição ao último commit
-# Isto é usado quando o último commit precisa ser substituído. Não cria um novo commit,
-#somente altera a mensagem e inclui as modificações
-
-git reset HEAD novo_arquivo.R # retira o arquivo 'novo_arquivo.R' da stage area após 'git add .'
-
-git rm novo_arquivo.R # Remove files from the working tree and from the index
-
-#--------------------------------------------------------------------------------------
-Trabalhando com tags
-São úteis para trabalhar com versões do sistema.
-No entanto, podem ser problemáticas para testes.
-Recomenda-se o uso de branchs (ramificações).
-#--------------------------------------------------------------------------------------
-
-git tag # lista as tags dos arquivos
-
-git tag -a v1.0 -m "Mensagem referente à tag v1.0" # inclui uma tag e uma mensagem
-
-git tag -a v0.0 chave_do_commit_que_são_aquelas_letras_e_números -m "Informe qual tag será"
-# Criando tag a partir de commit. Isto é muito útil
-
-git show v1.0 # mostra inclusões da nova versão
-
-git checkout v0.0 # nesta situação temos as tags 'v0.0' e 'v1.0'. Para fazer a troca entre
-#versões a partir das tags, utilize aquele comando.
-
-git checkout master # volta o projeto para as origens
-
-git tag -d nova_da_tag # deleta uma tag
-
-#--------------------------------------------------------------------------------------
-Trabalhando com branchs
-Criando ambientes de testes.
-Cria-se uma ramificação mantendo a estrutura original (cópia de segurança).
-#--------------------------------------------------------------------------------------
-
+### Trabalhando com branches  
+Os "branches" são ramificações do master que são muito úteis quando você precisa testar ou trabalhar em alterações grandes sem alterar o que está no ramo principal. É muito importante manter branches em seus trabalhos colaborativos, porque isso diminui a chance do master sofrer grandes alterações acidentais e simplifica o gerenciamento das versões dos arquivos.  
+```shell
+git show-branch -a # lista todos os branches
+```
+```shell
 git branch nome_do_branch # cria um novo branch
 
-git checkout nome_do_branch # transfere os arquivos de branch 'master' para o novo branch
+git checkout nome_do_branch # transfere o ambiente de trabalho para o novo branch
 
-git checkout -b nome_do_branch # evita os dois comandos acima. Cria e transfere de uma vez
-#só os arquivos do branch 'master' para o novo branch
-
-git commit -a -m "novas linhas adicionadas no fim do código" # commit das alterações no branch de teste
-
-git merge novo_branch # une as alterações do branch de teste ao branch branch 'master'
-# É preciso estar no branch destino (neste o 'master') e trazer as informações do branch de origem das
-#alterações (neste caso, novo_branch)
-
-git branch # lista o branchs existentes
-
-git branch -d novo_branch # remove o branch
-
-#--------------------------------------------------------------------------------------
-Integrando o git com o GitHub
-#--------------------------------------------------------------------------------------
-Gerando as chaves necessárias
-
-ssh-keygen # gera chaves
-
-git clone git@github.com:fulano/curso_git.git # clonando um repositório existente no GitHub
-
-git push origin master # envia as modificações para o GitHub
-
-
-[Find out commits associated a specific file](http://stackoverflow.com/questions/3701404/list-all-commits-for-a-specific-file)
-
-`git log -p filename`
-
-Precisei do código abaixo para reverter as mudanças feitas quando adicionei os arquivos binários (imagens, '.ai' e pdfs) ao Git LFS do BitBucket.
-
-[Git revert certain files](https://stackoverflow.com/questions/23068790/git-revert-certain-files)
-
+git checkout -b nome_do_branch # cria e transfere de uma vez
 ```
-git revert --no-commit <commit hash> # Revert, don't commit it yet
-git reset # Unstage everything
-git add yourFilesToRevert # Add the file to revert
+Quando todas as alterações que você fez no seu branch estiverem prontas e você achar que está na hora de uní-las ao master (ou para qualquer outro branch), passe para o ramo destino e solicite um merge:  
+```shell
+git merge novo_branch # une as alterações de 'novo_branch' ao 'master'
+```
+Se você não precisar mais do ramo e quiser excluí-lo, utilize o comando `git branch -d novo_branch`.  
+Frequentemente pode acontecer do seu branch de trabalho não estar atualizado em relação ao master. Isto pode ser um problema se o master estiver com atualizações importantes para o desenvolvimento do seu projeto no branch. Para trazer as atualizações do master pro seu branch, siga os seguintes passos:    
+1. Confira se está no master. Se não estiver, passe para ele:
+```
+git checkout master
+```
+2. Estando no master, atualize seu diretório local:
+```
+git pull
+```
+3. Após atualizar seu diretório local, passe para o seu branch, mescle as atualizações do master no seu branch e envie para o repositório remoto:
+```
+git checkout seu-branch
+git merge master seu-branch
+git push
+```
+Pronto! Agora o seu branch contém tudo o que havia de novo no master. :)
+
+---
+Oh, my Git! D=
+---
+Fez besteira nos commits? Quer reverter alguma mudança? Não se desespere!  
+Se você fez um commit e se arrependeu, mas nem lembra que commit foi ([Find out commits associated for a specific file](http://stackoverflow.com/questions/3701404/list-all-commits-for-a-specific-file)):
+```
+git log -p filename`
+```
+Se quer incluir novas edições ao último commit, substituindo-o:
+```
+git commit --amend -m "mensagem"
+```
+Se quiser retirar algum arquivo da stage area após um `git add .`:
+```
+git reset HEAD novo_arquivo.R
+```
+Mas se quiser removê-lo da sua *working tree* e do conjunto de arquivos adicionados:
+```
+git rm novo_arquivo.R
+```
+Se tudo isso der errado, tente o seguinte (dicas retiradas [daqui](https://stackoverflow.com/questions/23068790/git-revert-certain-files)):
+```
+git revert --no-commit <commit hash> # Reverter, mas não commitar ainda
+git reset # Tira tudo da stage area
+git add yourFilesToRevert # Adiciona os arquivos para reverter
 git commit -m "commit message"
-git reset --hard # Undo changes from the revert we didn't commit
+git reset --hard # Desfaz mudanças que não foram "commitadas"
 ```
-
-### 2017-05-03 inclusão de novos comandos; confira: https://rogerdudler.github.io/git-guide/index.pt_BR.html
-
-- Sobrescrever alterações locais: No caso de você ter feito algo errado, você pode sobrescrever as alterações locais usando o commando:
-
+Tem mais dicas sobre isso [aqui](https://rogerdudler.github.io/git-guide/index.pt_BR.html), como estas:
+- Sobrescrever alterações locais: no caso de você ter feito algo errado, você pode sobrescrever as alterações locais usando o commando:
 ```shell
 git checkout -- <arquivo>
 ```
+Isto substitui as alterações na sua árvore de trabalho com o conteúdo mais recente no HEAD. Alterações já adicionadas ao index, bem como novos arquivos serão mantidos.  
 
-Isto substitui as alterações na sua árvore de trabalho com o conteúdo mais recente no HEAD. Alterações já adicionadas ao index, bem como novos arquivos serão mantidos.
-
-- Se ao invés disso você deseja remover todas as alterações e commits locais, recupere o histórico mais recente do servidor e aponte para seu branch master local desta forma:
-
+- Se ao invés disso você deseja remover todas as alterações e commits locais, recupere o histórico mais recente do servidor e aponte para seu branch master local desta forma:  
 ```shell
 git fetch origin
 git reset --hard origin/master
 ```
-
-- Para fazer inclusões interativamente via terminal, use:
-
-```shell
-git add -i
+---
+Trabalhando com tags
+---
+As *tags* são úteis para trabalhar com versões. Elas são "bandeirinhas" que marcam determinado commit. Você pode usá-las para marcar mudanças importantes no seu trabalho. Existem dois tipos de tags: as simples e as anotadas. Para criar uma tag simples no seu commit, utilize o comando `git tag sua_tag`. Se você quer etiquetar um commit que já foi feito, é um pouco diferente:
 ```
-
-Siga as instruções fornecidas pelo terminal e inclua quantos arquivos quiser antes do commit.
-
-### 2017-05-04
-
-```shell
-git show-branch -a
+git tag -a sua_tag chave_do_commit_que_são_aquelas_letras_e_números -m "mensagem da tag/commit"
 ```
+Já uma tag anotada guarda nela as informações do autor do commit, do autor da tag, hora e data de cada coisa e as mensages associadas. Para criar uma tag anotada, utilize o seguinte comando:
+```
+git tag -a sua_tag -m "Mensagem referente à tag sua_tag"
+```
+Estas informações da tag anotada podem ser obtidas com `git show sua_tag`. Você também pode consultar todas as tags já utilizadas com o comando `git tag`. Se você não quer mais determinada tag no seu controle de versões, utilize o comando `git tag -d sua_tag`.  
+Um detalhe importante é que suas tags não são automaticamente incluídas no seu repositório remoto. Você deve explicitamente "pushar" estas informações.
+```shell
+git push origin sua_tag # somente uma tag
+git push origin --tags # mais de uma tag
+```
+---
+É isso! Esperamos que este guia possa ajudar você na sua jornada de controle de versões. À medida em que formos percebendo quais rotinas são mais requisitadas e necessárias no dia-a-dia, incluiremos mais dicas aqui.  
+**Lembre-se: mantenha o master o mais intocado possível, trabalhe com branches para testar suas ideias e sempre pushe suas modificações antes de dormir.**
