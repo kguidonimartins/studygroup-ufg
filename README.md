@@ -56,7 +56,7 @@ git push origin meu_branch
 
 ### Tutoriais Git e GitHub
 
-[Nosso guia de referência (em construção)](https://github.com/kguidonimartins/studygroup-ufg/blob/master/guia-de-referencia.md)
+[Nosso guia de referência](https://github.com/kguidonimartins/studygroup-ufg/blob/master/guia-de-referencia.md)
 
 [Comandos básicos](https://comandosgit.github.io/)
 
