@@ -279,3 +279,6 @@ git push origin --tags # mais de uma tag
 ---
 É isso! Esperamos que este guia possa ajudar você na sua jornada de controle de versões. À medida em que formos percebendo quais rotinas são mais requisitadas e necessárias no dia-a-dia, incluiremos mais dicas aqui.  
 **Lembre-se: mantenha o master o mais intocado possível, trabalhe com branches para testar suas ideias e sempre pushe suas modificações antes de dormir.**
+
+
+## 2017-05-14 https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git#
