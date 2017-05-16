@@ -282,3 +282,5 @@ git push origin --tags # mais de uma tag
 
 
 ## 2017-05-14 https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git#
+
+## 2017-04-16 https://twitter.com/captainsafia/status/864246151767261184
