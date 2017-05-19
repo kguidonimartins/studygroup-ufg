@@ -281,6 +281,8 @@ git push origin --tags # mais de uma tag
 **Lembre-se: mantenha o master o mais intocado possível, trabalhe com branches para testar suas ideias e sempre pushe suas modificações antes de dormir.**
 
 
-## 2017-05-14 https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git#
+2017-05-14 https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git#
 
-## 2017-04-16 https://twitter.com/captainsafia/status/864246151767261184
+2017-05-16 https://twitter.com/captainsafia/status/864246151767261184
+
+2017-05-19 http://nvie.com/posts/a-successful-git-branching-model/
