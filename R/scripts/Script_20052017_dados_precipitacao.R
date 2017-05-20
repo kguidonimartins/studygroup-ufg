@@ -28,3 +28,16 @@ shapefile(shp.trmm, file = "raw-data/trmm_rainfall/shape_TRMM_pa_br_precipitacao
 writeOGR(shp.trmm, dsn = "raw-data/trmm_rainfall/shape_TRMM_pa_br_precipitacao_3000_lapig.kml", layer = "TRMM", 
          driver = "KML")
 
+
+
+trmm_df = trmm[]
+head(trmm_df)
+
+
+trmm_df = rasterToPoints(trmm)
+head(trmm_df)
+
+plot(rasterFromXYZ(trmm_df[,1:3]))
+plot(trmm[[1]])
+
+
